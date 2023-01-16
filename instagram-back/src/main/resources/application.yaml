@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: ${DB_LOGIN}
+    password: ${DB_PASS}
+    url: jdbc:postgresql://localhost:5432/postgres
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 20
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: none
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
+server:
+  servlet:
+    context-path: /instagram
+  port: ${PORT:8080}
+server-mail:
+  password: ${MAIL_PASS}
+  login: ${MAIL_LOGIN}
+  host: ${MAIL_HOST}
+  port: ${MAIL_PORT}
+server-ui:
+  url : ${UI_URL}
