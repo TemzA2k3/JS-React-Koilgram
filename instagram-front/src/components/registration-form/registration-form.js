@@ -1,1 +1,1 @@
-"use strit"
+"use strict"
