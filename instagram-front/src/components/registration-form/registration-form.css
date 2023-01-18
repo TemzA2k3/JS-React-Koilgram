@@ -1,60 +1,10 @@
-/* body{
-    background-color:azure
-    }
-    
-    .form{
-    display: grid;
-    place-items: center;
-    width: 350px;
-    height: 500px;
-    outline: auto;
-    margin: 0 auto;
-    background-color: rgb(58, 150, 203)
-    
-    
-    }
-    
-    .name {
-    padding-bottom: 15px;
-    
-    }
-    
-    .surname {
-    padding-bottom: 15px;
-    
-    }
-    
-    .btn {
-    padding-bottom: 15px;
-    display: flex;
-    justify-content: center;
-    top: 30px;
-    position: relative;
-    }
-    
-    .img{
-    top: -50px;
-    position: relative;
-    }
-    
-    .text-center{
-    text-align: center;
-    }
-    
-    .descrInp{
-    text-decoration: black;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 15px;
-    }
-    
-    .Inp{
-    border-radius: 6px;
-    width: 250px;
-    height: 25px;
-    } */
+a {
+    text-decoration: none;
+}
 
 
 .outer{
+    background-image: url("https://papik.pro/uploads/posts/2021-11/thumbs/1636577893_21-papik-pro-p-poluprozrachnii-fon-css-risunok-24.png");
     width: 400px;
     height: 500px; 
     outline: auto;
@@ -65,7 +15,97 @@
 
 }
 
-.outerForm{
-    margin-top: auto;
-    margin-bottom: 100px;
+
+
+.checkBoxInner{
+    margin-left: 10px;
 }
+
+
+.posRightLink{
+    padding-left: 80px;
+}
+.posRightLink:hover{
+    color: darkblue;
+}
+
+.checkBoxAndLink{
+    padding-top: 25px;
+    padding-bottom: 20px;
+}
+
+.image{
+    height: 100px;
+    width: 100px; 
+      
+}
+.topImage{
+    padding-top: 25px;
+    padding-bottom: 50px;
+}
+
+.label{
+    font-family: Comic Sans MS, Comic Sans, cursive
+}
+
+.btn {
+    width: 200px
+}
+
+
+.headBegin{
+    color: deeppink;
+    font-family: Comic Sans MS, Comic Sans, cursive
+}
+
+.headEnd{
+    color: darkmagenta;
+}
+
+
+
+.button {
+    border-radius: 4px;
+    background-color: #f03329;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 5px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    height: 50px;
+  }
+  
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+
+
+
+
+
