@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
+
 class RegistrationForm extends Component {
 
     constructor(props) {
@@ -42,11 +43,13 @@ class RegistrationForm extends Component {
         </Form.Group>  
 
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
+            <div className="checkBoxAndLink">        
+                <input type="checkbox"/>
+                <label className="checkBoxInner">Remember me</label>   
+                <a className="posRightLink" href="https://getbootstrap.com/">Forgot password?</a>
+            </div>
+        </Form.Group>
+        <Button variant="primary" type="submit">Submit</Button>
     </Form>
     </div>
         )
