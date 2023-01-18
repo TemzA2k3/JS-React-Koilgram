@@ -6,13 +6,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.instagramback.constants.routs.LoginRouts;
 import com.example.instagramback.converter.UserDtoConverter;
 import com.example.instagramback.dto.UserDto;
 import com.example.instagramback.entity.User;
 import com.example.instagramback.service.user.UserService;
 
 @RestController
-@RequestMapping("/login")
+@RequestMapping(LoginRouts.MAIN_ROUT)
 
 public class AuthController {
 

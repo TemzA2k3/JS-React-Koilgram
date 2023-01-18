@@ -8,13 +8,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.instagramback.constants.routs.RegisterRouts;
 import com.example.instagramback.converter.UserCredentialDtoConverter;
 import com.example.instagramback.dto.UserCredentialDto;
 import com.example.instagramback.entity.User;
 import com.example.instagramback.service.user.UserService;
 
 @RestController
-@RequestMapping("/register")
+@RequestMapping(RegisterRouts.MAIN_ROUT)
 public class RegisterController {
 
     private final UserService userService;
