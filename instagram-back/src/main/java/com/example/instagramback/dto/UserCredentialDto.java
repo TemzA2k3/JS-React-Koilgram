@@ -30,13 +30,8 @@ public class UserCredentialDto {
     @Size(max = 25, message = Message.PASSWORD_MAX)
     @Size(min = 5, message = Message.PASSWORD_MIN)
     private String password;
-    @Pattern(regexp = Patterns.FIRST_NAME, message = Message.FIRST_NAME)
-    @Size(max = 25, message = Message.FIRST_NAME_MAX)
-    private String firstName;
-    @Pattern(regexp = Patterns.LAST_NAME, message = Message.LAST_NAME)
-    @Size(max = 25, message = Message.LAST_NAME_MAX)
-    private String lastName;
-    @Pattern(regexp = Patterns.PHONE, message = Message.PHONE)
-    private String phoneNumber;
+    @Pattern(regexp = Patterns.USER_NAME, message = Message.USER_NAME)
+    @Size(max = 25, message = Message.USER_NAME_MAX)
+    private String username;
     private Set<Role> roles;
 }

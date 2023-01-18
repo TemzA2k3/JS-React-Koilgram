@@ -33,6 +33,8 @@ public class User extends BaseEntity implements UserDetails{
     private String email;
     @NotBlank
     private String password;
+    @NotBlank
+    private String username;
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles",
         joinColumns = @JoinColumn(name = "user_id"),

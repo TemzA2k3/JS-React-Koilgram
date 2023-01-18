@@ -22,5 +22,5 @@ public class UserDto {
     @Email(message = Message.EMAIL)
     private String email;
     private Set<Role> roles;
-
+    private String username;
 }
