@@ -1,3 +1,71 @@
-a {
-    text-decoration: none;
+/* body{
+    background-color:azure
+    }
+    
+    .form{
+    display: grid;
+    place-items: center;
+    width: 350px;
+    height: 500px;
+    outline: auto;
+    margin: 0 auto;
+    background-color: rgb(58, 150, 203)
+    
+    
+    }
+    
+    .name {
+    padding-bottom: 15px;
+    
+    }
+    
+    .surname {
+    padding-bottom: 15px;
+    
+    }
+    
+    .btn {
+    padding-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    top: 30px;
+    position: relative;
+    }
+    
+    .img{
+    top: -50px;
+    position: relative;
+    }
+    
+    .text-center{
+    text-align: center;
+    }
+    
+    .descrInp{
+    text-decoration: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+    }
+    
+    .Inp{
+    border-radius: 6px;
+    width: 250px;
+    height: 25px;
+    } */
+
+
+.outer{
+    width: 400px;
+    height: 500px; 
+    outline: auto;
+    display: grid;
+    margin: 0 auto;
+    padding: 15px;
+    margin-top: 100px;
+
+}
+
+.outerForm{
+    margin-top: auto;
+    margin-bottom: 100px;
 }
