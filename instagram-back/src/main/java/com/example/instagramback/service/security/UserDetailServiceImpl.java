@@ -1,4 +1,4 @@
-package com.example.instagramback.service;
+package com.example.instagramback.service.security;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

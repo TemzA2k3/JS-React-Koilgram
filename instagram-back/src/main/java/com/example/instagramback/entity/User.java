@@ -3,25 +3,19 @@ package com.example.instagramback.entity;
 import java.util.Collection;
 import java.util.Set;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.annotation.Validated;
 
-import com.example.instagramback.constants.validation.Patterns;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -39,10 +33,6 @@ public class User extends BaseEntity implements UserDetails{
     private String email;
     @NotBlank
     private String password;
-    private String firstName;
-    private String lastName;
-    @Pattern(regexp = Patterns.PHONE)
-    private String phoneNumber;
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles",
         joinColumns = @JoinColumn(name = "user_id"),
