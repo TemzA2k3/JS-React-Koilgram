@@ -26,11 +26,17 @@ class RegistrationForm extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
+        const resObj = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(this.state)
+        }
+        fetch('http://localhost:8080/koilgram/register', resObj).then()
         this.setState({
             userName: '',
             email: '',
             password: '',
-        })
+        })       
     }
 
 
