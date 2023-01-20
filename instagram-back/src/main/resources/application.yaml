@@ -16,13 +16,18 @@ spring:
       ddl-auto: none
     properties:
       hibernate.default_schema : koilgram
+    properties:
+      hibernate.default_schema : koilgram
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.xml
+    default-schema: koilgram
     default-schema: koilgram
 server:
   servlet:
     context-path: /koilgram
+    context-path: /koilgram
   port: ${PORT:8080}
+  #Дефолтный порт не менять вр как
   #Дефолтный порт не менять вр как
 server-mail:
   password: ${MAIL_PASS}

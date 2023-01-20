@@ -1,8 +1,3 @@
-a {
-    text-decoration: none;
-}
-
-
 .outer{
     background-image: url("https://papik.pro/uploads/posts/2021-11/thumbs/1636577893_21-papik-pro-p-poluprozrachnii-fon-css-risunok-24.png");
     width: 400px;
@@ -24,11 +19,12 @@ a {
 
 
 .posRightLink{
-    padding-left: 80px;
+    padding-left: 50px;
 }
 .posRightLink:hover{
     color: darkblue;
 }
+
 
 .checkBoxAndLink{
     padding-top: 25px;
@@ -61,6 +57,10 @@ a {
 
 .headEnd{
     color: darkmagenta;
+}
+
+.innerBtn{
+    padding-top: 25px;
 }
 
 
