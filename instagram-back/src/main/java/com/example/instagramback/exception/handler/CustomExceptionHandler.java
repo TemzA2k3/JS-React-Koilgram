@@ -6,6 +6,8 @@ import java.util.List;
 
 
 import javax.mail.MessagingException;
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -21,18 +23,19 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 
 import com.example.instagramback.dto.ErrorMessage;
-import com.example.instagramback.exception.custom.EmailInUseException;
+import com.example.instagramback.exception.custom.UserInputAlreadyInUse;
 import com.example.instagramback.exception.custom.IncorrectMailException;
 
 @SuppressWarnings({"unchecked", "rawtypes"})
 @ControllerAdvice
 public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(EmailInUseException.class)
-    public ResponseEntity<Object> handleEmailException(EmailInUseException exception) {
+    @ExceptionHandler(UserInputAlreadyInUse.class)
+    public ResponseEntity<Object> handleEmailException(UserInputAlreadyInUse exception) {
         ErrorMessage errorMessage = new ErrorMessage(exception.getMessage());
         return new ResponseEntity(errorMessage, HttpStatus.CONFLICT);
     }
+
     @ExceptionHandler(MessagingException.class)
     public ResponseEntity<Object> handleMessageServerException(MessagingException exception) {
         ErrorMessage errorMessage = new ErrorMessage("Problems with mail service");
@@ -53,6 +56,22 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
     @ResponseBody
     public ResponseEntity<Object> handleInvalidParameterException(AuthenticationException exception) {
         ErrorMessage errorMessage = new ErrorMessage(exception.getMessage());
+        return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
+    }
+    @ExceptionHandler(ConstraintViolationException.class)
+    @ResponseBody
+    public ResponseEntity<Object> handleInvalidParameterException(ConstraintViolationException exception) {
+        String exceptionMessage = "";
+        for (ConstraintViolation cv : exception.getConstraintViolations()) {
+            StringBuffer buffer = new StringBuffer()
+                .append("{ ")
+                .append(cv.getPropertyPath().toString() + " ")
+                .append(cv.getMessage() + ", полученное значение : ")
+                .append(cv.getInvalidValue() == null ? "null" : cv.getInvalidValue().toString())
+                .append(" }");
+            exceptionMessage = buffer.toString();
+        }
+        ErrorMessage errorMessage = new ErrorMessage(exceptionMessage);
         return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
     }
 

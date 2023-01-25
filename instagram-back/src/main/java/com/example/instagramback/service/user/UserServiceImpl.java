@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.example.instagramback.entity.Role;
 import com.example.instagramback.entity.User;
 import com.example.instagramback.enums.mail.MailMessageTemplates;
-import com.example.instagramback.exception.custom.EmailInUseException;
+import com.example.instagramback.exception.custom.UserInputAlreadyInUse;
 import com.example.instagramback.exception.custom.IncorrectMailException;
 import com.example.instagramback.repository.UserRepository;
 import com.example.instagramback.service.mail.MailService;
@@ -30,8 +30,8 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public void saveUser(User user) throws RuntimeException, MessagingException {
-        if (userRepository.findByEmail(user.getEmail()).isPresent()) {
-            throw new EmailInUseException(String.format("Email: %s , already using by another user", user.getEmail()));
+        if (userRepository.findByEmail(user.getEmail()).isPresent() || userRepository.findByUserName(user.getUsername()).isPresent()) {
+            throw new UserInputAlreadyInUse(String.format("Email: %s , already using by another user", user.getEmail()));
         }
         user.setRoles(Collections.singleton(new Role(0)));
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));

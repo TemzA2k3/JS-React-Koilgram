@@ -4,10 +4,10 @@ import javax.mail.MessagingException;
 import javax.transaction.Transactional;
 
 import com.example.instagramback.entity.User;
-import com.example.instagramback.exception.custom.EmailInUseException;
+import com.example.instagramback.exception.custom.UserInputAlreadyInUse;
 
 @Transactional
 public interface UserService {
-    void saveUser(User user) throws EmailInUseException, MessagingException;
+    void saveUser(User user) throws UserInputAlreadyInUse, MessagingException;
     User getByEmail(String email);
 }

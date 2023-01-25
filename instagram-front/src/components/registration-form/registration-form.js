@@ -75,7 +75,7 @@ class RegistrationForm extends Component {
                         <a className="posRightLink label" href="/logIn">Log In</a>
                     </div>
                 </Form.Group>
-                <button class="button"><span>Register</span></button>     
+                <button class="button" type="submit"><span>Register</span></button>
                 </Form>
             </div>
         )

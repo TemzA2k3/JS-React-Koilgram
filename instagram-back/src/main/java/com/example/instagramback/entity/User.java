@@ -34,7 +34,7 @@ public class User extends BaseEntity implements UserDetails{
     @NotBlank
     private String password;
     @NotBlank
-    private String username;
+    private String userName;
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles",
         joinColumns = @JoinColumn(name = "user_id"),
@@ -48,7 +48,7 @@ public class User extends BaseEntity implements UserDetails{
 
     @Override
     public String getUsername() {
-        return email;
+        return userName;
     }
 
     @Override

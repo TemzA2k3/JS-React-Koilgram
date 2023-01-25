@@ -9,7 +9,7 @@ public class UserCredentialDtoConverter {
         User user = new User();
         user.setPassword(userCredentialsDto.getPassword());
         user.setEmail(userCredentialsDto.getEmail());
-        user.setUsername(userCredentialsDto.getUsername());
+        user.setUserName(userCredentialsDto.getUsername());
         return user;
     }
 }
