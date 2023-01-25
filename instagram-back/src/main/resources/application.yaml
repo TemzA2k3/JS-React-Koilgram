@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    username: postgres
+    username: ${DB_LOGIN}
     #postgres по дефолту
-    password: jmgapja.
+    password: ${DB_PASS}
     # твой пароль от дб при установке
     url: jdbc:postgresql://localhost:5432/postgres
     hikari:
@@ -25,14 +25,15 @@ server:
   port: ${PORT:8080}
   #Дефолтный порт не менять вр как
 server-mail:
-  password: bqytzubiiswasxtx
+  password: ${MAIL_PASS}
   #Пароль от почты
-  login: lolwwka
+  login: ${MAIL_LOGIN}
   #Логин от почты
-  host: smtp.gmail.com
+  host: ${MAIL_HOST}
   #Для Gmail smtp.gmail.com
-  port: 587
+  port: ${MAIL_PORT}
   #Gmail 587
 server-ui:
   #http://localhost:4200 по дефолту
-  url : http://localhost:4200
+  url : ${UI_URL}
+
