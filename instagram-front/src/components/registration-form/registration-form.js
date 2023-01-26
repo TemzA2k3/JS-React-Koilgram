@@ -10,10 +10,12 @@ class RegistrationForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            userName: '',
+            username: '',
             email: '',
             password: '',
-        }        
+            showedMessage: undefined
+        }    
+          
     }
 
     onRegistation = (e) => {
@@ -25,15 +27,24 @@ class RegistrationForm extends Component {
 
 
     onSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault()
         const resObj = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(this.state)
         }
-        fetch('http://localhost:8080/koilgram/register', resObj).then()
+
+        fetch('http://localhost:8080/koilgram/register', resObj)
+            .then(response => response.json())
+            .then(info => {
+                this.setState({
+                    showedMessage: info.details[0]
+                })
+                               
+            });
+
         this.setState({
-            userName: '',
+            username: '',
             email: '',
             password: '',
         })       
@@ -41,7 +52,7 @@ class RegistrationForm extends Component {
 
 
     render(){
-        const {userName, email, password} = this.state
+        const {username, email, password, showedMessage} = this.state
         return(
             <div className="outer">
                 <Form onSubmit={this.onSubmit} className="outerForm">
@@ -51,7 +62,7 @@ class RegistrationForm extends Component {
                 <Form.Group as={Row} className="mb-3" controlId="formPlaintextUserName">
                     <Form.Label className="label" column sm="5">Username</Form.Label>        
                     <Col sm="6">
-                        <Form.Control onChange={this.onRegistation} value={userName} name="userName" type="userName" placeholder="Enter Username" />
+                        <Form.Control onChange={this.onRegistation} value={username} name="username" type="username" placeholder="Enter Username" />
                     </Col>
                 </Form.Group>
 
@@ -75,6 +86,7 @@ class RegistrationForm extends Component {
                         <a className="posRightLink label" href="/logIn">Log In</a>
                     </div>
                 </Form.Group>
+                <span className="label err">{showedMessage}</span>            
                 <button class="button" type="submit"><span>Register</span></button>
                 </Form>
             </div>
