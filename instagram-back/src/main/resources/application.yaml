@@ -34,6 +34,6 @@ server-mail:
   port: ${MAIL_PORT}
   #Gmail 587
 server-ui:
-  #http://localhost:4200 по дефолту
+  #http://localhost:3000 по дефолту
   url : ${UI_URL}
 

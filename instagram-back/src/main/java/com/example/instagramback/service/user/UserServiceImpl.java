@@ -4,19 +4,20 @@ import java.util.Collections;
 
 import javax.mail.MessagingException;
 
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.instagramback.entity.Role;
 import com.example.instagramback.entity.User;
 import com.example.instagramback.enums.mail.MailMessageTemplates;
-import com.example.instagramback.exception.custom.UserInputAlreadyInUse;
 import com.example.instagramback.exception.custom.IncorrectMailException;
+import com.example.instagramback.exception.custom.UserInputAlreadyInUse;
 import com.example.instagramback.repository.UserRepository;
 import com.example.instagramback.service.mail.MailService;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -42,5 +43,10 @@ public class UserServiceImpl implements UserService{
     @Override
     public User getByEmail(String email) throws RuntimeException {
         return userRepository.findByEmail(email).orElseThrow(() -> new IncorrectMailException("There no user with that email"));
+    }
+
+    @Override
+    public User getByUsername(String username) throws RuntimeException {
+        return userRepository.findByUserName(username).orElseThrow(() -> new UsernameNotFoundException(String.format("There no user with: %s username", username)));
     }
 }

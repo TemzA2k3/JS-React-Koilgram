@@ -25,7 +25,7 @@ public class AuthController {
 
     @PostMapping
     public UserDto authenticate(Principal principal) throws RuntimeException {
-        User user = userService.getByEmail(principal.getName());
+        User user = userService.getByUsername(principal.getName());
         UserDto userDto = UserDtoConverter.convertUserToDto(user);
         return userDto;
     }
