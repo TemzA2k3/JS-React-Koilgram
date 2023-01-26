@@ -71,7 +71,7 @@ class LogInForm extends Component {
             </Form.Group>
             <a className="label" href="/">Don't Have an Account?</a>
             <div className="innerBtn">
-                <button class="button"><span>Log In</span></button>    
+                <button className="button"><span>Log In</span></button>    
             </div> 
             </Form>
         </div>
