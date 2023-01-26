@@ -7,6 +7,7 @@ public interface Message {
     String PASSWORD_MAX = "Password must be less 25 symbols";
     String PASSWORD_MIN = "Password must be more 5 symbols";
     String PASSWORD_BLANK = "Password can't be empty";
+    String USERNAME_BLANK = "Username can't be empty";
     String EMAIL = "Invalid email input";
     String USER_NAME_MAX = "Username must be less 25 letters";
 }
