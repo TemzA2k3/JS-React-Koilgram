@@ -13,6 +13,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -55,6 +56,13 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler({ AuthenticationException.class })
     @ResponseBody
     public ResponseEntity<Object> handleInvalidParameterException(AuthenticationException exception) {
+        ErrorMessage errorMessage = new ErrorMessage(exception.getMessage());
+        return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler({ UsernameNotFoundException.class })
+    @ResponseBody
+    public ResponseEntity<Object> handleUsernameNotFoundException(UsernameNotFoundException exception) {
         ErrorMessage errorMessage = new ErrorMessage(exception.getMessage());
         return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
     }

@@ -10,4 +10,5 @@ import com.example.instagramback.exception.custom.UserInputAlreadyInUse;
 public interface UserService {
     void saveUser(User user) throws UserInputAlreadyInUse, MessagingException;
     User getByEmail(String email);
+    User getByUsername(String username);
 }
