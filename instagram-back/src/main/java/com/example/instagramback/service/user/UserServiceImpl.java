@@ -12,7 +12,7 @@ import com.example.instagramback.entity.Role;
 import com.example.instagramback.entity.User;
 import com.example.instagramback.enums.mail.MailMessageTemplates;
 import com.example.instagramback.exception.custom.IncorrectMailException;
-import com.example.instagramback.exception.custom.UserInputAlreadyInUse;
+import com.example.instagramback.exception.custom.InputedDataUsedException;
 import com.example.instagramback.repository.UserRepository;
 import com.example.instagramback.service.mail.MailService;
 
@@ -31,8 +31,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void saveUser(User user) throws RuntimeException, MessagingException {
-        if (userRepository.findByEmail(user.getEmail()).isPresent() || userRepository.findByUserName(user.getUsername()).isPresent()) {
-            throw new UserInputAlreadyInUse(String.format("Email: %s , already using by another user", user.getEmail()));
+        if (userRepository.findByEmail(user.getEmail()).isPresent()) {
+            throw new InputedDataUsedException(String.format("Email: %s , already using by another user", user.getEmail()));
+        }
+        if (userRepository.findByUserName(user.getUsername()).isPresent()){
+            throw new InputedDataUsedException(String.format("Username: %s , already using by another user", user.getUsername()));
         }
         user.setRoles(Collections.singleton(new Role(0)));
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
@@ -42,7 +45,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getByEmail(String email) throws RuntimeException {
-        return userRepository.findByEmail(email).orElseThrow(() -> new IncorrectMailException("There no user with that email"));
+        return userRepository.findByEmail(email).orElseThrow(() -> new IncorrectMailException(String.format("There no user with: %s email",email)));
     }
 
     @Override
