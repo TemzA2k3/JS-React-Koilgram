@@ -43,7 +43,7 @@ class LogInForm extends Component {
     render(){
         const {userName, password, isRememberMe} = this.state
         return(
-            <div className="outer">
+            <div className="outerLogIn">
             <Form onSubmit={this.onSubmit} className="outerForm">
                 <div className="topImage">
                     <h1 className="headBegin">Koil<span className="headEnd">Gram</span></h1>

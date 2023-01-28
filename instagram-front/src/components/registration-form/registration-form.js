@@ -34,21 +34,57 @@ class RegistrationForm extends Component {
             body: JSON.stringify(this.state)
         }
 
+        //cheking
+
+        // eslint-disable-next-line
+        let mailFormat = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (!this.state.email.match(mailFormat)){
+            this.setState(({
+                showedMessage: "Incorrect Email"
+            }))
+            return
+        }
+
+        let userFormat = "^$|^[A-Za-z]*$";
+        if (!this.state.username.match(userFormat)){
+            this.setState(({
+                showedMessage: "Username must include only english letters"
+            }))
+            return
+        }
+
+        if (this.state.password.length < 5){
+            this.setState(({
+                showedMessage: "Password must be more than 5 symbols"
+            }))
+            return
+        }
+
+        if (this.state.password.length > 25){
+            this.setState(({
+                showedMessage: "Password must be less than 25 symbols"
+            }))
+            return
+        }
 
         fetch('http://localhost:8080/koilgram/register', resObj)
             .then(response => {
                 if (response.status === 200) {
-                    this.setState(({
-                        showedMessage: "You have successfully registered!"
-                    }))
+                    // this.setState(({
+                    //     showedMessage: "You have successfully registered!"
+                    // }))
+                    let newObj = {
+                        "details" : ["You have successfully registered!"]
+                    }
 
                     setTimeout(() => {
                         window.location.href = "/logIn";
                     }, 5000)
-
+                    return newObj
                 }
                 return response.json()
             }).then((info) => {
+                console.log(info)
                 this.setState({
                     showedMessage: info.details[0]
                 })
@@ -99,7 +135,9 @@ class RegistrationForm extends Component {
                             <a className="posRightLink label" href="/logIn">Log In</a>
                         </div>
                     </Form.Group>
-                    <span className="label err">{showedMessage}</span>
+                    <div>
+                        <span className="label err">{showedMessage}</span>
+                    </div>
                     <button class="button" type="submit"><span>Register</span></button>
                 </Form>
             </div>
