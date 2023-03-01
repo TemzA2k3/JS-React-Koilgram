@@ -1,16 +1,10 @@
-import { useState } from 'react';
-import useRegistrationlogInService from '../../../services/registration-logInService';
+import { useState } from 'react'
+import useRegistrationlogInService from '../../services/registration-logInService';
+
+import './LogInForm.css'
 
 
-
-import Spinner from '../../Spinner/Spinner';
-
-
-
-
-
-
-const RegistrationForm = () => {
+const LogInForm = () => {
 
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
@@ -19,42 +13,9 @@ const RegistrationForm = () => {
 
     const { loading, error, userRegistration } = useRegistrationlogInService()
 
-    const onSubmit = async (e) => {
-        e.preventDefault()
-
-
-    // cheking
-    // eslint-disable-next-line
-    // await fetch('http://localhost:8080/koilgram/register', resObj)
-    //     .then(response => {
-    //         if (response.ok === 200) {
-    //             // this.setState(({
-    //             //     showedMessage: "You have successfully registered!"
-    //             // }))
-    //             const newObj = {
-    //                 "details" : ["You have successfully registered!"]
-    //             }
-
-    //             setTimeout(() => {
-    //                 window.location.href = "/logIn";
-    //             }, 5000)
-    //             return newObj
-    //         }
-    //         return response.json()
-    //     }).then((info) => {
-    //         console.log(info)
-    //         setShowedMessage(info.details[0])
-    //     })
-
-    setUsername('')
-    setEmail('')
-    setPassword('')
-    setShowedMessage(undefined)
-    }
-
     return (
         <div className="outer">
-            <div className="wrapper">
+            <div className="wrapper-log">
                 <div className="form-box login">
                     <h2>Login</h2>
                     <form action="#">
@@ -72,18 +33,15 @@ const RegistrationForm = () => {
                             <label><input type="checkbox" />Remember me</label>
                             <a href="#">Forgot password?</a>
                         </div>
-                        <button type="submit" className="btn-log">Login</button>
-                        <div className="login-register">
+                        <button type="submit" className="btn-reg">Login</button>
+                        <div className="login">
                             <p>Don't have an account?<a href="#" className="register-link">Register</a></p>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-
     )
 }
 
-
-
-export default RegistrationForm
+export default LogInForm
