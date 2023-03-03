@@ -48,17 +48,12 @@ const RegistrationForm = () => {
     setShowedMessage(undefined)
     }
 
-    // const onLink = () => {
-    //     let wrapper = document.querySelector('.wrapper')
-    //     wrapper.classList.add('active')
-    //     console.log(wrapper)
-    // }
 
     const eff = () => {
         setTimeout(() => {
         let wrapper = document.querySelector('.wrapper-reg')
         wrapper.classList.add('active')
-    }, 100)
+        }, 0)
     }
 
     useEffect(() => {

@@ -6,10 +6,18 @@ import '../Registration-LogIn.css'
 
 const LogInForm = () => {
 
-    const onLink = () => {
+
+
+    const remEff = () => {
+        setTimeout(() => {
         let wrapper = document.querySelector('.wrapper-log')
         wrapper.classList.add('active')
+        }, 0)
     }
+
+
+
+    useEffect(remEff)
 
     return (
         <div className="outer">
@@ -33,7 +41,7 @@ const LogInForm = () => {
                         </div>
                         <button type="submit" className="btn" style={{ 'background': '#162938', 'color': '#fff' }}>Login</button>
                         <div className="login-register">
-                            <p>Don't have an account?<Link to="/registration" onClick={() => onLink} className="register-link">Register</Link></p>
+                            <p>Don't have an account?<Link to="/registration" className="register-link">Register</Link></p>
                         </div>
                     </form>
                 </div>
