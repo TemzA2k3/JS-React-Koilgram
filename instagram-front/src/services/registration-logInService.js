@@ -4,16 +4,14 @@ const useRegistrationlogInService = () => {
 
 	const { loading, request, error, clearError } = useHttp();
 
-    const _apiRegistrationBase = "http://localhost:8080/koilgram/"
+    // const _apiRegistrationBase = "http://localhost:8080/koilgram"
 
     const userRegistration = async (userData) => {
-        const showedMessage = await request(`${_apiRegistrationBase}/register`, 'POST', userData)
-        console.log(showedMessage)
-        return showedMessage.message
+        const res = await request(`http://localhost:8080/koilgram/register`, 'POST', userData)
+        console.log(res)
+        return res.message
     }
 	
-
-
 	return {
 		loading,
 		error,
@@ -21,5 +19,6 @@ const useRegistrationlogInService = () => {
         userRegistration
 	};
 };
+
 
 export default useRegistrationlogInService;

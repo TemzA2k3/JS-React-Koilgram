@@ -15,8 +15,6 @@ const LogInForm = () => {
         }, 0)
     }
 
-
-
     useEffect(remEff)
 
     return (

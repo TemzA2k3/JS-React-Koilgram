@@ -15,8 +15,16 @@ const RegistrationForm = () => {
 
     const { loading, error, userRegistration } = useRegistrationlogInService()
 
-    const onSubmit = async (e) => {
-        e.preventDefault()
+    const onSubmit = (e) => {
+        // e.preventDefault()
+        const userInfo = {
+            username,
+            email,
+            password
+        }
+        userRegistration(userInfo).
+            then((data) => setShowedMessage(data))
+
 
 
     // cheking
@@ -42,10 +50,6 @@ const RegistrationForm = () => {
     //         setShowedMessage(info.details[0])
     //     })
 
-    setUsername('')
-    setEmail('')
-    setPassword('')
-    setShowedMessage(undefined)
     }
 
 
@@ -60,30 +64,33 @@ const RegistrationForm = () => {
         eff()
     },[])
 
+    const errorMessage = error ? <div className='err'>{showedMessage}</div> : null
+
     return (
         <div className="outer">
             <div className="wrapper wrapper-reg">
                 <div className="form-box register">
                     <h2>Registration</h2>
-                    <form action="#">
+                    <form onSubmit={onSubmit}>
                         <div className="input-box">
                             <span className="icon"><ion-icon name="person" /></span>
-                            <input type="text" required />
+                            <input onChange={(e) => setUsername(e.target.value)} type="text" required />
                             <label>Username</label>
                         </div>
                         <div className="input-box">
                             <span className="icon"><ion-icon name="mail" /></span>
-                            <input type="text" required />
+                            <input onChange={(e) => setEmail(e.target.value)} type="text" required />
                             <label>Email</label>
                         </div>
                         <div className="input-box">
                             <span className="icon"><ion-icon name="lock-closed" /></span>
-                            <input type="password" required />
+                            <input onChange={(e) => setPassword(e.target.value)} type="password" required />
                             <label>Password</label>
                         </div>
                         <div className="remember-forgot">
                             <label><input type="checkbox" />I agree to the terms &amp; conditions</label>
                         </div>
+                        {errorMessage}
                         <button type="submit" style={{'background': '#162938', 'color': '#fff'}} className="btn">Register</button>
                         <div className="login-register">
                             <p>Already have an account?<Link to="/" className="login-link">Login</Link></p>
