@@ -1,14 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'
 import useRegistrationlogInService from '../../../services/registration-logInService';
 
-
+import '../Registration-LogIn.css'
 
 import Spinner from '../../Spinner/Spinner';
-
-
-
-
-
 
 const RegistrationForm = () => {
 
@@ -52,29 +48,45 @@ const RegistrationForm = () => {
     setShowedMessage(undefined)
     }
 
+
+    const eff = () => {
+        setTimeout(() => {
+        let wrapper = document.querySelector('.wrapper-reg')
+        wrapper.classList.add('active')
+        }, 0)
+    }
+
+    useEffect(() => {
+        eff()
+    },[])
+
     return (
         <div className="outer">
-            <div className="wrapper">
-                <div className="form-box login">
-                    <h2>Login</h2>
+            <div className="wrapper wrapper-reg">
+                <div className="form-box register">
+                    <h2>Registration</h2>
                     <form action="#">
                         <div className="input-box">
+                            <span className="icon"><ion-icon name="person" /></span>
+                            <input type="text" required />
+                            <label>Username</label>
+                        </div>
+                        <div className="input-box">
                             <span className="icon"><ion-icon name="mail" /></span>
-                            <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                            <input type="text" required />
                             <label>Email</label>
                         </div>
                         <div className="input-box">
                             <span className="icon"><ion-icon name="lock-closed" /></span>
-                            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                            <input type="password" required />
                             <label>Password</label>
                         </div>
                         <div className="remember-forgot">
-                            <label><input type="checkbox" />Remember me</label>
-                            <a href="#">Forgot password?</a>
+                            <label><input type="checkbox" />I agree to the terms &amp; conditions</label>
                         </div>
-                        <button type="submit" className="btn-log">Login</button>
+                        <button type="submit" style={{'background': '#162938', 'color': '#fff'}} className="btn">Register</button>
                         <div className="login-register">
-                            <p>Don't have an account?<a href="#" className="register-link">Register</a></p>
+                            <p>Already have an account?<Link to="/" className="login-link">Login</Link></p>
                         </div>
                     </form>
                 </div>
