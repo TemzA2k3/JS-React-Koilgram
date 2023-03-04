@@ -186,5 +186,6 @@ body {
 }
 
 .err {
+    padding-bottom: 10px;
     color: red;
 }

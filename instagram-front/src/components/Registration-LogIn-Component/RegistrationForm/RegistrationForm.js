@@ -13,17 +13,18 @@ const RegistrationForm = () => {
     const [password, setPassword] = useState('')
     const [showedMessage, setShowedMessage] = useState(undefined)
 
-    const { loading, error, userRegistration } = useRegistrationlogInService()
+    const { loading, error, userRegistration, clearError } = useRegistrationlogInService()
 
     const onSubmit = (e) => {
-        // e.preventDefault()
+        e.preventDefault()
+        clearError()
         const userInfo = {
-            username,
             email,
-            password
+            password,
+            username,
         }
-        userRegistration(userInfo).
-            then((data) => setShowedMessage(data))
+        userRegistration(JSON.stringify(userInfo)).
+            then((data) => setShowedMessage(error ? error : data))
 
 
 
@@ -64,7 +65,11 @@ const RegistrationForm = () => {
         eff()
     },[])
 
-    const errorMessage = error ? <div className='err'>{showedMessage}</div> : null
+    // const errorMessage = error ? 
+    //     <div className='err'>{showedMessage}</div> : null
+    //     // <div className='err'>You have successfully registered!</div>
+
+    const spinner = loading ? <Spinner/> : null
 
     return (
         <div className="outer">
@@ -90,10 +95,14 @@ const RegistrationForm = () => {
                         <div className="remember-forgot">
                             <label><input type="checkbox" />I agree to the terms &amp; conditions</label>
                         </div>
-                        {errorMessage}
+                        <div className='err'>
+                        {spinner}
+                        {error}
+                        {showedMessage}
+                        </div>
                         <button type="submit" style={{'background': '#162938', 'color': '#fff'}} className="btn">Register</button>
                         <div className="login-register">
-                            <p>Already have an account?<Link to="/" className="login-link">Login</Link></p>
+                            <p>Already have an account?<Link to="/koilgram/login" className="login-link">Login</Link></p>
                         </div>
                     </form>
                 </div>

@@ -8,14 +8,16 @@ import RegistrationForm from '../Registration-LogIn-Component/RegistrationForm/R
 function App() {
     return (
         <BrowserRouter>
-            <div className="App">      
+            <div className="App">
                 <Routes>
-                    <Route path="/" element={<LogInForm/>}/>  
-                    <Route path="/registration" element={<RegistrationForm/>}/>    
+                    <Route path='/koilgram/'>
+                        <Route path="login" element={<LogInForm />} />
+                        <Route path="register" element={<RegistrationForm />} />
+                    </Route>
                 </Routes>
             </div>
         </BrowserRouter>
-);
+    );
 }
 
 export default App;
