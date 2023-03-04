@@ -1,20 +1,23 @@
-import './app.css';
-import RegistrationForm from '../registration-form/registration-form'
-import LogInForm from '../logIn-form/logIn-form';
+import './App.css';
 import React from 'react';
-import { BrowserRouter, Route, Routes} from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+
+import LogInForm from '../Registration-LogIn-Component/LogInForm/LogInForm';
+import RegistrationForm from '../Registration-LogIn-Component/RegistrationForm/RegistrationForm';
 
 function App() {
     return (
         <BrowserRouter>
-            <div className="App">      
+            <div className="App">
                 <Routes>
-                    <Route path="/" element={<RegistrationForm/>}/>  
-                    <Route path="/logIn" element={<LogInForm/>}/>    
+                    <Route path='/koilgram/'>
+                        <Route path="login" element={<LogInForm />} />
+                        <Route path="register" element={<RegistrationForm />} />
+                    </Route>
                 </Routes>
             </div>
         </BrowserRouter>
-);
+    );
 }
 
 export default App;
