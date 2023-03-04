@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.instagramback.constants.routs.RegisterRouts;
 import com.example.instagramback.converter.UserCredentialDtoConverter;
+import com.example.instagramback.dto.SuccessCallbackMessage;
 import com.example.instagramback.dto.UserCredentialDto;
 import com.example.instagramback.entity.User;
 import com.example.instagramback.service.user.UserService;
@@ -25,8 +26,11 @@ public class RegisterController {
     }
 
     @PostMapping()
-    public void registerUser(@Valid @RequestBody UserCredentialDto userCredentialsDto) throws RuntimeException, MessagingException {
+    public SuccessCallbackMessage registerUser(@Valid @RequestBody UserCredentialDto userCredentialsDto) throws RuntimeException, MessagingException {
         User user = UserCredentialDtoConverter.convertUserCredToDto(userCredentialsDto);
         userService.saveUser(user);
+        SuccessCallbackMessage successCallbackMessage = new SuccessCallbackMessage();
+        successCallbackMessage.setMessage("You successfully registered");
+        return successCallbackMessage;
     }
 }
