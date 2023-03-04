@@ -180,3 +180,8 @@
 .login-register p a:hover {
     text-decoration: underline;
 }
+
+.err {
+    padding-bottom: 10px;
+    color: red;
+}

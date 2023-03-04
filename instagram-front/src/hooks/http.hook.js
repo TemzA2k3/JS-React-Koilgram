@@ -4,7 +4,7 @@ export const useHttp = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    const request = useCallback(async (url, method = 'GET', body = null, headers = {'Content-Type': 'application/json'}) => {
+    const request = useCallback(async (url, method = 'GET', body = null, headers = {'Content-Type': 'application/json', 'Origin': 'http://localhost:3000'}) => {
 
         setLoading(true);
 
@@ -12,16 +12,20 @@ export const useHttp = () => {
             const response = await fetch(url, {method, body, headers});
 
             if (!response.ok) {
-                throw new Error(`Could not fetch ${url}, status: ${response.status}`);
+                const res = await response.json()
+                throw new Error(res.details[0]);
+            } else {
+                const data = 'You have successfully registered!'
+                return data
             }
+            // const data = await response.json()
 
-            const data = await response.json();
-
-            setLoading(false);
-            return data;
+            // setLoading(false);
+            // return data;
         } catch(e) {
             setLoading(false);
             setError(e.message);
+            console.log(e.message)
             throw e;
         }
     }, []);

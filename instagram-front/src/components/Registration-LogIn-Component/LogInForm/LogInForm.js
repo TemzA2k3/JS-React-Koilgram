@@ -15,8 +15,6 @@ const LogInForm = () => {
         }, 0)
     }
 
-
-
     useEffect(remEff)
 
     return (
@@ -41,7 +39,7 @@ const LogInForm = () => {
                         </div>
                         <button type="submit" className="btn" style={{ 'background': '#162938', 'color': '#fff' }}>Login</button>
                         <div className="login-register">
-                            <p>Don't have an account?<Link to="/registration" className="register-link">Register</Link></p>
+                            <p>Don't have an account?<Link to="/koilgram/register" className="register-link">Register</Link></p>
                         </div>
                     </form>
                 </div>
