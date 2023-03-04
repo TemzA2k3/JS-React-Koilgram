@@ -7,14 +7,14 @@
 .outer {
     display: grid;
     place-items: center;
-    margin-top: 10%;
+    margin-top: 7%;
 }
 
 
 .wrapper {
     position: relative;
     width: 400px;
-    height: 440px; 
+    height: 470px; 
     background: transparent; 
     border: 2px solid rgba(255, 255, 255, .5);  
     border-radius: 20px;
@@ -30,7 +30,7 @@
 .wrapper-log {
     position: relative;
     width: 400px;
-    height: 520px; 
+    height: 570px; 
     background: transparent; 
     border: 2px solid rgba(255, 255, 255, .5);  
     border-radius: 20px;
@@ -44,11 +44,11 @@
 }
 
 .wrapper-reg.active {
-    height: 520px;
+    height: 570px;
 }
 
 .wrapper-log.active {
-    height: 440px;
+    height: 470px;
 }
 
 .wrapper .form-box {

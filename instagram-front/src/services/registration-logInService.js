@@ -8,7 +8,6 @@ const useRegistrationlogInService = () => {
 
     const userRegistration = async (userData) => {
         const res = await request(`${_apiRegistrationBase}/register`, 'POST', userData)
-        console.log(res)
         return res
     }
 	

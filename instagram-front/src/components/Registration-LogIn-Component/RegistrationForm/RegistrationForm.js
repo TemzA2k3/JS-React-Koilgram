@@ -18,43 +18,18 @@ const RegistrationForm = () => {
     const onSubmit = (e) => {
         e.preventDefault()
         clearError()
+        setShowedMessage(undefined)
         const userInfo = {
             email,
             password,
             username,
         }
         userRegistration(JSON.stringify(userInfo)).
-            then((data) => setShowedMessage(error ? error : data))
-
-
-
-    // cheking
-    // eslint-disable-next-line
-    // await fetch('http://localhost:8080/koilgram/register', resObj)
-    //     .then(response => {
-    //         if (response.ok === 200) {
-    //             // this.setState(({
-    //             //     showedMessage: "You have successfully registered!"
-    //             // }))
-    //             const newObj = {
-    //                 "details" : ["You have successfully registered!"]
-    //             }
-
-    //             setTimeout(() => {
-    //                 window.location.href = "/logIn";
-    //             }, 5000)
-    //             return newObj
-    //         }
-    //         return response.json()
-    //     }).then((info) => {
-    //         console.log(info)
-    //         setShowedMessage(info.details[0])
-    //     })
-
+            then((data) => setShowedMessage(data.message))
     }
 
 
-    const eff = () => {
+    const animation = () => {
         setTimeout(() => {
         let wrapper = document.querySelector('.wrapper-reg')
         wrapper.classList.add('active')
@@ -62,12 +37,8 @@ const RegistrationForm = () => {
     }
 
     useEffect(() => {
-        eff()
+        animation()
     },[])
-
-    // const errorMessage = error ? 
-    //     <div className='err'>{showedMessage}</div> : null
-    //     // <div className='err'>You have successfully registered!</div>
 
     const spinner = loading ? <Spinner/> : null
 
