@@ -1,15 +1,27 @@
 .nav {
     display: flex;
     height: 100%;
-    width: 5%;
+    width: 90px;
     background-color: white;
     flex-direction: column;
     align-items: center;
     gap: 100px;
+    justify-content: space-around;
 }
 
 .img {
-    height: 40%;
-    width: 40%;
-    padding-top: 20%;
+    height: 100%;
+    width: 100%;
+}
+
+.nav-btn {
+    width: 35px;
+    height: 35px;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    align-items: center;
 }
