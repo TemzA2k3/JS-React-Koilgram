@@ -8,7 +8,7 @@ import message from '../../../images/message.png'
 const Navbar = () => {
     return (
         <div className="nav">
-            <div className="nav-item">
+            <div className="nav-item mt-10">
                 <div className="nav-btn"><img className='img' src={burg}></img></div>
             </div>            
             <div className="nav-item">
@@ -16,7 +16,7 @@ const Navbar = () => {
                 <div className="nav-btn"><img className='img' src={message}></img></div>
                 <div className="nav-btn"><img className='img' src={settings}></img></div>
             </div>           
-            <div className="nav-item">
+            <div className="nav-item mb-10">
                 <div className="nav-btn"><img className='img' src={exit}></img></div>
             </div>
         </div>
