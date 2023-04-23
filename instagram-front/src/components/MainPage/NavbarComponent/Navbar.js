@@ -1,4 +1,3 @@
-
 import './Navbar.css'
 import burg from '../../../images/burg.png'
 import settings from '../../../images/settings.png'
@@ -23,4 +22,5 @@ const Navbar = () => {
         </div>
     )
 }
+
 export default Navbar
