@@ -1,0 +1,28 @@
+.profbar {
+    height: 100%;
+    width: 580px;
+    background-color: crimson;
+}
+.profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.prof-img {
+    height: 150px;
+    width: 150px;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+
+.name-surn { 
+    display: flex;
+    flex-direction: column;
+}
