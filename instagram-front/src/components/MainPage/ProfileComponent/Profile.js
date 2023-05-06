@@ -1,5 +1,6 @@
 import './Profile.css'
 import img from '../../../images/withoutimg.webp'
+import menu from '../../../images/openlist.png'
 
 const ProfileComponent = () => {
 
@@ -11,11 +12,14 @@ const ProfileComponent = () => {
                 </div>
                 <div className="name-surn">
                     <div className='name'>
-                        <p>KARIM</p>
+                        KARIM
                     </div>
                     <div className='surname'>
-                        <p>KUCHMURADOV</p>
+                        KUCHMURADOV
                     </div>
+                </div>
+                <div className="menu">
+                    <img className="" src={menu}></img>
                 </div>
             </div>
         </div>

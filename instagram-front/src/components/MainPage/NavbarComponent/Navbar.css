@@ -8,6 +8,8 @@
     align-items: center;
     gap: 100px;
     justify-content: space-between;
+    border-right: groove;
+    border-color: black;
 }
 
 .img {
