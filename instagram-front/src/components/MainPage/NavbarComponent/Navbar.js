@@ -6,10 +6,16 @@ import exit from '../../../images/exit.png'
 import message from '../../../images/message.png'
 
 const Navbar = () => {
+
+    const onToogleNav = () => {
+        const nav = document.querySelector('.nav')
+        nav.classList.toggle("active")
+    }
+
     return (
         <div className="nav">
             <div className="nav-item mt-10">
-                <div className="nav-btn"><img className='img' src={burg}></img></div>
+                <div className="nav-btn"><button onClick={onToogleNav} className="settbtn"><img className='img' src={burg}></img></button></div>
             </div>            
             <div className="nav-item">
                 <div className="nav-btn"><img className='img' src={gallery}></img></div>

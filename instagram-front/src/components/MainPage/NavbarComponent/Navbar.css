@@ -1,5 +1,4 @@
 .nav {
-    /* position: fixed; */
     display: flex;
     height: 100%;
     width: 90px;
@@ -35,4 +34,17 @@
 
 .mt-10 {
     margin-top: 35px;
+}
+
+.nav.active {
+    width: 180px;
+    position: absolute;
+    z-index: 2;
+
+}
+
+.settbtn {
+    padding: 0;
+    border: 0;
+    background-color:white;
 }

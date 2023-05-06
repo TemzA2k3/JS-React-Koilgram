@@ -19,7 +19,13 @@ const ProfileComponent = () => {
                     </div>
                 </div>
                 <div className="menu">
-                    <img className="" src={menu}></img>
+                    <button className="dropbtn"><img src={menu}></img></button>
+                    <div class="dropdown-content">
+                        <a href="#">Мой профиль</a>
+                        <a href="#">Галерея</a>
+                        <a href="#">Настройки</a>
+                        <a href="#">Сменить аккаунт</a>
+                    </div>
                 </div>
             </div>
         </div>
