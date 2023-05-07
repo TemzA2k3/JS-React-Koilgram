@@ -84,6 +84,7 @@
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     font-size: 14px;
+    right: 10px;
 }
 
 .dropdown-content a {
@@ -102,4 +103,12 @@
 /* Изменение цвета фона кнопки раскрывающегося списка при отображении содержимого раскрывающегося списка */
 .menu:hover .dropbtn {
     background-color:#ddd;
+}
+
+.lower {
+    border-radius: 0 0 10px 10px;
+}
+
+.highest {
+    border-radius: 10px 10px 0 0 ;
 }
