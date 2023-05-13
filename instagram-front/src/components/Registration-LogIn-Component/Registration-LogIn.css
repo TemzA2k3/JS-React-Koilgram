@@ -1,4 +1,236 @@
+body {
+    background-image: url('../../images/background.jpg');
+}
+
+.slider {
+    border-top: 2px solid rgba(255, 255, 255, .5);  
+    border-bottom: 2px solid rgba(255, 255, 255, .5); 
+    border-left: 2px solid rgba(255, 255, 255, .5); 
+}
+
+.name {
+    margin-top: -75px;
+    padding: 20px;
+    text-align: center;
+    color: #162938;
+}
+
+.name span {
+    color: #0d60a0;
+}
+
+.outer {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    width: 1400px;
+    height: 600px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 90px;
+     
+}
+
+.slider {
+    width: 50%;
+    height: 100%;
+}
+
+.form {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%; 
+    background: transparent; 
+    border: 2px solid rgba(255, 255, 255, .5);  
+    border-radius: 0 20px 20px 0;
+    backdrop-filter: blur(20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: height .2s ease;
+}
+
+/* .wrapper-log {
+    position: relative;
+    width: 100%;
+    height: 100%; 
+    background: transparent; 
+    border: 2px solid rgba(255, 255, 255, .5);  
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: height .2s ease;
+} */
+
+.wrapper-reg.active {
+    height: 570px;
+}
+
+.wrapper-log.active {
+    height: 470px;
+}
+
+.wrapper .form-box {
+    width: 100%;
+    padding: 40px;
+    transition: transform .18s ease ;
+
+}
+
+.wrapper-log.active .form-box.login {
+    transform: translateX(0px);
+}
+
+.wrapper-log .form-box.login {
+    transform: translateX(-400px);
+}
+
+.wrapper-reg .form-box.register {
+    position: absolute;
+    transform: translateX(400px);
+}
+
+.wrapper-reg.active .form-box.register {
+    transform: translateX(0);
+}
+
+.form-box h2 {
+    font-size: 2em;
+    color: #fefefe;
+    text-align: center;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #fefefe;
+    margin: 30px 0;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #fefefe;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #fefefe;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #fefefe;
+    line-height: 57px;
+}
+
+.remember-forgot {
+    font-size: .9em;
+    color: #fefefe;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input {
+    accent-color: #fefefe;
+    margin-right: 3px;
+}
+
+.remember-forgot a {
+    color: #fefefe;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    width: 100%;
+    height: 45px;
+    background: #162938;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+}
+
+.login-register {
+    font-size: .9em;
+    color: #fefefe;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+
+.login-register p a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #fefefe;
+}
+
+.login-register p a:hover {
+    text-decoration: underline;
+}
+
+.err {
+    padding-bottom: 10px;
+    color: red;
+}
+
+
+
+
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
 
 * {
     font-family: 'Poppins', sans-serif;
@@ -184,4 +416,4 @@
 .err {
     padding-bottom: 10px;
     color: red;
-}
+} */
