@@ -6,3 +6,23 @@
 .carousel-item{
    transition: transform .6s ease-in-out !important;
 }
+
+.carousel-control-next, .carousel-control-prev {
+   transition: opacity .15s ease !important;
+}
+
+.img {
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
+}
+
+.carousel.slide, .carousel-inner, .carousel-item {
+   width: 100%;
+   height: 100%;
+}
+
+.carousel-control-next, .carousel-control-prev {
+   opacity: 1 !important;
+}
+
