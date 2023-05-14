@@ -7,10 +7,6 @@
    transition: transform .6s ease-in-out !important;
 }
 
-.carousel-control-next, .carousel-control-prev {
-   transition: opacity .15s ease !important;
-}
-
 .img {
    object-fit: cover;
    width: 100%;
