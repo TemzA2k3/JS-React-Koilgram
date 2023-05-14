@@ -1,7 +1,10 @@
 .profbar {
     height: 100%;
-    width: 580px;
+    width: 400px;
     background-color: crimson;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 .profile {
     display: flex;
