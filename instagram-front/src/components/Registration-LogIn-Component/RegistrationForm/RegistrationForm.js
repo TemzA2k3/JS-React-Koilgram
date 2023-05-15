@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 import useRegistrationlogInService from '../../../services/registration-logInService';
+import Slider from '../Slider/Slider';
 
 import '../Registration-LogIn.css'
 
@@ -31,53 +32,59 @@ const RegistrationForm = () => {
 
     const animation = () => {
         setTimeout(() => {
-        let wrapper = document.querySelector('.wrapper-reg')
-        wrapper.classList.add('active')
+            let wrapper = document.querySelector('.wrapper-reg')
+            wrapper.classList.add('active')
         }, 0)
     }
 
     useEffect(() => {
         animation()
-    },[])
+    }, [])
 
-    const spinner = loading ? <Spinner/> : null
+    const spinner = loading ? <Spinner /> : null
 
     return (
         <div className="outer">
-            <div className="wrapper wrapper-reg">
-                <div className="form-box register">
-                    <h2>Registration</h2>
-                    <form onSubmit={onSubmit}>
-                        <div className="input-box">
-                            <span className="icon"><ion-icon name="person" /></span>
-                            <input onChange={(e) => setUsername(e.target.value)} type="text" required />
-                            <label>Username</label>
-                        </div>
-                        <div className="input-box">
-                            <span className="icon"><ion-icon name="mail" /></span>
-                            <input onChange={(e) => setEmail(e.target.value)} type="text" required />
-                            <label>Email</label>
-                        </div>
-                        <div className="input-box">
-                            <span className="icon"><ion-icon name="lock-closed" /></span>
-                            <input onChange={(e) => setPassword(e.target.value)} type="password" required />
-                            <label>Password</label>
-                        </div>
-                        <div className="remember-forgot">
-                            <label><input type="checkbox" />I agree to the terms &amp; conditions</label>
-                        </div>
-                        <div className='err'>
-                        {spinner}
-                        {error}
-                        {showedMessage}
-                        </div>
-                        <button type="submit" style={{'background': '#162938', 'color': '#fff'}} className="btn">Register</button>
-                        <div className="login-register">
-                            <p>Already have an account?<Link to="/koilgram/login" className="login-link">Login</Link></p>
-                        </div>
-                    </form>
+            <div className="slider">
+                <Slider />
+            </div>
+            <div className="form">
+                <div className="wrapper wrapper-reg">
+                    <div className="form-box register">
+                        <h2>Registration</h2>
+                        <form onSubmit={onSubmit}>
+                            <div className="input-box">
+                                <span className="icon"><ion-icon name="person" /></span>
+                                <input onChange={(e) => setUsername(e.target.value)} type="text" required />
+                                <label>Username</label>
+                            </div>
+                            <div className="input-box">
+                                <span className="icon"><ion-icon name="mail" /></span>
+                                <input onChange={(e) => setEmail(e.target.value)} type="text" required />
+                                <label>Email</label>
+                            </div>
+                            <div className="input-box">
+                                <span className="icon"><ion-icon name="lock-closed" /></span>
+                                <input onChange={(e) => setPassword(e.target.value)} type="password" required />
+                                <label>Password</label>
+                            </div>
+                            <div className="remember-forgot">
+                                <label><input type="checkbox" />I agree to the terms &amp; conditions</label>
+                            </div>
+                            <div className='err'>
+                                {spinner}
+                                {error}
+                                {showedMessage}
+                            </div>
+                            <button type="submit" style={{ 'background': '#162938', 'color': '#fff' }} className="btn">Register</button>
+                            <div className="login-register">
+                                <p>Already have an account?<Link to="/koilgram/login" className="login-link">Login</Link></p>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
+
         </div>
 
     )

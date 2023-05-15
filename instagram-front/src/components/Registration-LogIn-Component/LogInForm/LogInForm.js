@@ -12,7 +12,7 @@ const LogInForm = () => {
     const remEff = () => {
         setTimeout(() => {
             let wrapper = document.querySelector('.wrapper-log')
-            wrapper.classNameList.add('active')
+            wrapper.classList.add('active')
         }, 0)
     }
 
@@ -25,7 +25,7 @@ const LogInForm = () => {
                 <Slider/>
             </div>
             <div className="form">
-                <div className="wrapper wrapper-reg">
+                <div className="wrapper wrapper-log">
                     <div className="form-box login">
                         <div className="name">
                             <h1>Koil<span>Gram</span></h1>
@@ -55,33 +55,6 @@ const LogInForm = () => {
                 </div>
             </div>
         </div>
-        // {/* // <div classNameName="outer">
-        // //     <div classNameName="wrapper wrapper-log">
-        // //         <div classNameName="form-box login">
-        // //             <h2>Login</h2>
-        // //             <form action="#">
-        // //                 <div classNameName="input-box">
-        // //                     <span classNameName="icon"><ion-icon name="mail" /></span>
-        // //                     <input type="text" required />
-        // //                     <label>Email</label>
-        // //                 </div>
-        // //                 <div classNameName="input-box">
-        // //                     <span classNameName="icon"><ion-icon name="lock-closed" /></span>
-        // //                     <input type="password" required />
-        // //                     <label>Password</label>
-        // //                 </div>
-        // //                 <div classNameName="remember-forgot">
-        // //                     <label><input type="checkbox" />Remember me</label>
-        // //                     <a href="#">Forgot password?</a>
-        // //                 </div>
-        // //                 <button type="submit" classNameName="btn" style={{ 'background': '#162938', 'color': '#fff' }}>Login</button>
-        // //                 <div classNameName="login-register">
-        // //                     <p>Don't have an account?<Link to="/koilgram/register" classNameName="register-link">Register</Link></p>
-        // //                 </div>
-        // //             </form>
-        // //         </div>
-        // //     </div>
-        // // </div> */}
     )
 }
 
